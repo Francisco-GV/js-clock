@@ -9,10 +9,14 @@
 }
 
 h1 {
+    color: white;
+    font-weight: lighter;
     font-family: "Segoe UI", Arial, sans-serif;
+    margin-bottom: 20px;
 }
 
 #container {
+    height: 100vh;
     text-align: center;
-    /*background: #51a7c9;*/
+    background: rgb(33, 33, 33);
 }
