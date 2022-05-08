@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
 
     const fontName = 'ancient-geek'
 
-    const CANVAS_WIDTH = 250
+    const CANVAS_WIDTH = 500
     const CANVAS_HEIGHT = CANVAS_WIDTH
 
     canvas.width = CANVAS_WIDTH
@@ -60,6 +60,7 @@ window.addEventListener('load', () => {
         // Draw Line
         ctx.strokeStyle = color
         ctx.lineWidth = width
+        ctx.lineCap = 'round'
 
         ctx.beginPath()
         ctx.moveTo(centerX, centerY)
@@ -73,11 +74,14 @@ window.addEventListener('load', () => {
         ctx.moveTo(centerX, centerY)
         ctx.lineTo(invertX, invertY)
         ctx.stroke()
+
+        ctx.lineCap = 'butt' // default
     }
 
     function drawLines(position, size, amount, width, color) {
 
         ctx.strokeStyle = color
+        ctx.lineCap = 'square'
         let oldWidth = ctx.lineWidth
 
         ctx.lineWidth = width
@@ -98,6 +102,7 @@ window.addEventListener('load', () => {
         }
 
         ctx.lineWidth = oldWidth
+        ctx.lineCap = 'butt' // default
     }
 
     function drawNumbers() {
@@ -151,8 +156,8 @@ window.addEventListener('load', () => {
         ctx.fill()
 
         drawNumbers()
-        drawLines(getPercent(radius, 90), getPercent(radius, 4), 60, 1, 'white')
-        drawLines(getPercent(radius, 90), getPercent(radius, 8), 12, 2, 'white')
+        drawLines(getPercent(radius, 90), getPercent(radius, 4), 60, getPercent(radius, 0.8), 'white')
+        drawLines(getPercent(radius, 90), getPercent(radius, 8), 12, getPercent(radius, 1.6), 'white')
     }
 
     loop()
