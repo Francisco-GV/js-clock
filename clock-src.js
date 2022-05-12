@@ -23,8 +23,8 @@ window.addEventListener('load', () => {
         draw()
     }
 
-    function degreeToRadian(degree) {
-        return degree * (Math.PI / 180)
+    function degToRad(a) {
+        return a * (Math.PI / 180)
     }
 
     function getPercent(total, percent) {
@@ -45,11 +45,11 @@ window.addEventListener('load', () => {
 
         // Se calcula el punto a partir de un circulo ficticio creado con un radio 'size'
         // Se restan 90 porque los radianes comienzan totalmente a la derecha del circulo 
-        let x = centerX + length * Math.cos(degreeToRadian(deg - 90))
-        let y = centerY + length * Math.sin(degreeToRadian(deg - 90))
+        let x = centerX + length * Math.cos(degToRad(deg - 90))
+        let y = centerY + length * Math.sin(degToRad(deg - 90))
 
-        let invertX = centerX + tailLength * Math.cos(degreeToRadian(deg - 270))
-        let invertY = centerY + tailLength * Math.sin(degreeToRadian(deg - 270))
+        let invertX = centerX + tailLength * Math.cos(degToRad(deg - 270))
+        let invertY = centerY + tailLength * Math.sin(degToRad(deg - 270))
 
         // Draw Line
         ctx.strokeStyle = color
@@ -83,11 +83,11 @@ window.addEventListener('load', () => {
         for (let i = 0; i < amount; i++) {
             let deg = 360 / amount * i;
 
-            let x1 = centerX + position * Math.cos(degreeToRadian(deg - 90))
-            let y1 = centerY + position * Math.sin(degreeToRadian(deg - 90))
+            let x1 = centerX + position * Math.cos(degToRad(deg - 90))
+            let y1 = centerY + position * Math.sin(degToRad(deg - 90))
 
-            let x2 = centerX + (position - size) * Math.cos(degreeToRadian(deg - 90))
-            let y2 = centerY + (position - size) * Math.sin(degreeToRadian(deg - 90))
+            let x2 = centerX + (position - size) * Math.cos(degToRad(deg - 90))
+            let y2 = centerY + (position - size) * Math.sin(degToRad(deg - 90))
 
             ctx.beginPath()
             ctx.moveTo(x1, y1)
@@ -112,8 +112,8 @@ window.addEventListener('load', () => {
 
             let deg = 360 / 12 * i;
 
-            let x = centerX + position * Math.cos(degreeToRadian(deg - 60))
-            let y = centerY + position * Math.sin(degreeToRadian(deg - 60))
+            let x = centerX + position * Math.cos(degToRad(deg - 60))
+            let y = centerY + position * Math.sin(degToRad(deg - 60))
 
             ctx.lineWidth = 0.3
             ctx.fillText(numberValues[i], x, y)
