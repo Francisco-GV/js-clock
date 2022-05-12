@@ -6,12 +6,6 @@ window.addEventListener('load', () => {
 
     const fontName = 'ancient-geek'
 
-    const CANVAS_WIDTH = 500
-    const CANVAS_HEIGHT = CANVAS_WIDTH
-
-    canvas.width = CANVAS_WIDTH
-    canvas.height = CANVAS_HEIGHT
-
     const clockWidth = canvas.width
     const clockHeight = canvas.height
 
