@@ -1,6 +1,8 @@
 # js-clock
 A simple analog clock made with *JavaScript*.
 
+This is a JS version of [JClockFX](https://github.com/Francisco-GV/JClockFX), made with Java and JavaFX.
+
 ![image](https://user-images.githubusercontent.com/54688495/167312756-815dd496-41d6-4438-8ccc-215606595a2e.png)
 
 Font [Ancient Geek](https://www.dafont.com/es/ancient-geek.font) created by [Matthew Welch](https://www.dafont.com/es/matthew-welch.d318).
