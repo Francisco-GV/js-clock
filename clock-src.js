@@ -2,7 +2,7 @@ window.addEventListener('load', () => {
     const canvas = document.getElementById('canvas-clock')
     const ctx = canvas.getContext('2d')
 
-    const numberValues = ['1', '2', '3', '14', '4', '41', '42', '43', '15', '5', '51', '52'];
+    const numberValues = ['1', '2', '3', '14', '4', '41', '42', '43', '15', '5', '51', '52']
 
     const fontName = 'ancient-geek'
 
@@ -81,13 +81,13 @@ window.addEventListener('load', () => {
         ctx.lineWidth = width
 
         for (let i = 0; i < amount; i++) {
-            let deg = 360 / amount * i;
+            let deg = (360 / amount * i) - 90
 
-            let x1 = centerX + position * Math.cos(degToRad(deg - 90))
-            let y1 = centerY + position * Math.sin(degToRad(deg - 90))
+            let x1 = centerX + position * Math.cos(degToRad(deg))
+            let y1 = centerY + position * Math.sin(degToRad(deg))
 
-            let x2 = centerX + (position - size) * Math.cos(degToRad(deg - 90))
-            let y2 = centerY + (position - size) * Math.sin(degToRad(deg - 90))
+            let x2 = centerX + (position - size) * Math.cos(degToRad(deg))
+            let y2 = centerY + (position - size) * Math.sin(degToRad(deg))
 
             ctx.beginPath()
             ctx.moveTo(x1, y1)
@@ -108,15 +108,15 @@ window.addEventListener('load', () => {
 
         const position = getPercent(radius, 70)
 
-        for (let i = 0; i < 12; i++) {
+        for (let i = 1; i <= 12; i++) {
 
-            let deg = 360 / 12 * i;
+            let deg = (360 / 12 * i) - 90
 
-            let x = centerX + position * Math.cos(degToRad(deg - 60))
-            let y = centerY + position * Math.sin(degToRad(deg - 60))
+            let x = centerX + position * Math.cos(degToRad(deg))
+            let y = centerY + position * Math.sin(degToRad(deg))
 
             ctx.lineWidth = 0.3
-            ctx.fillText(numberValues[i], x, y)
+            ctx.fillText(numberValues[i - 1], x, y)
         }
     }
 
