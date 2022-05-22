@@ -154,6 +154,7 @@ window.addEventListener('load', () => {
         drawLines(pct(90), pct(8), 12, pct(1.6), 'white')
     }
 
-    loop()
-    setInterval(loop, 250)
+    setTimeout(setInterval, 
+        1000 - new Date().getMilliseconds(), 
+        loop, 1000)
 })
