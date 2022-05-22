@@ -27,8 +27,8 @@ window.addEventListener('load', () => {
         return a * (Math.PI / 180)
     }
 
-    function getPercent(total, percent) {
-        return total / 100 * percent
+    function pct(percentage, total = radius) {
+        return total / 100 * percentage
     }
 
     function updateTime() {
@@ -62,7 +62,7 @@ window.addEventListener('load', () => {
         ctx.stroke()
 
         ctx.strokeStyle = color
-        ctx.lineWidth = getPercent(width, 150)
+        ctx.lineWidth = pct(150, width)
 
         ctx.beginPath()
         ctx.moveTo(centerX, centerY)
@@ -100,13 +100,13 @@ window.addEventListener('load', () => {
     }
 
     function drawNumbers() {
-        let fontSize = getPercent(radius, 10)
+        let fontSize = pct(10)
 
         ctx.font = fontSize + 'px ' + fontName
         ctx.textBaseline = 'middle'
         ctx.textAlign = 'center'
 
-        const position = getPercent(radius, 70)
+        const position = pct(70)
 
         for (let i = 1; i <= 12; i++) {
 
@@ -132,26 +132,26 @@ window.addEventListener('load', () => {
 
         // dibujar borde
         ctx.strokeStyle = 'darkRed'
-        ctx.lineWidth = getPercent(radius, 2.1)
+        ctx.lineWidth = pct(2.1)
         ctx.beginPath()
-        ctx.arc(centerX, centerY, getPercent(radius, 92), 0, 2 * Math.PI)
+        ctx.arc(centerX, centerY, pct(92), 0, 2 * Math.PI)
         ctx.stroke()
 
         // Dibujar manecillas
-        let tailLength = getPercent(radius, 8)
-        drawHand(360 / 60 * second, getPercent(radius, 65), getPercent(radius, 0.6), tailLength, 'white')
-        drawHand(360 / 60 * minute, getPercent(radius, 50), getPercent(radius, 1),   tailLength, '#F5F5F5')
-        drawHand(360 / 12 * hour,   getPercent(radius, 40), getPercent(radius, 1.4), tailLength, 'FFFAF0')
+        let tailLength = pct(8)
+        drawHand(360 / 60 * second, pct(65), pct(0.6), tailLength, 'white')
+        drawHand(360 / 60 * minute, pct(50), pct(1),   tailLength, '#F5F5F5')
+        drawHand(360 / 12 * hour,   pct(40), pct(1.4), tailLength, 'FFFAF0')
 
         // Dibujar punto central
         ctx.fillStyle = 'white'
         ctx.beginPath()
-        ctx.arc(centerX, centerY, getPercent(radius, 3), 0, 2 * Math.PI)
+        ctx.arc(centerX, centerY, pct(3), 0, 2 * Math.PI)
         ctx.fill()
 
         drawNumbers()
-        drawLines(getPercent(radius, 90), getPercent(radius, 4), 60, getPercent(radius, 0.8), 'white')
-        drawLines(getPercent(radius, 90), getPercent(radius, 8), 12, getPercent(radius, 1.6), 'white')
+        drawLines(pct(90), pct(4), 60, pct(0.8), 'white')
+        drawLines(pct(90), pct(8), 12, pct(1.6), 'white')
     }
 
     loop()
